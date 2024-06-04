@@ -11,6 +11,9 @@ USER 0
 COPY . /tmp/todo-frontend
 
 RUN cd /tmp/todo-frontend
+
+WORKDIR /tmp/todo-frontend
+
 RUN npm install
 RUN npm run build
 
@@ -24,5 +27,9 @@ LABEL updatedDate="2021-05-19"
 
 COPY nginx.conf /etc/nginx/
 COPY --from=appbuild /tmp/todo-frontend/build /usr/share/nginx/html
+
+EXPOSE 8080
+
+USER nginx
 
 CMD nginx -g "daemon off;"
