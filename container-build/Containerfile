@@ -1,3 +1,8 @@
 # Use the httpd-parent image as base
-FROM quay.io/redhattraining/httpd-parent
-EXPOSE 8080
+FROM quay.io/fedora/nodejs-18-minimal:20231129
+ENV PORT=8080
+EXPOSE ${PORT}
+ADD . $HOME
+RUN npm install --package-lock-only
+RUN npm ci --omit=dev && rm -rf .npm
+CMD npm start
