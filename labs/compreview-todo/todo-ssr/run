@@ -1,0 +1,2 @@
+
+c new-app https://github.com/jdesigndev/DO288-apps.git --name todo-ssr --context-dir=/apps/compreview-todo/todo-ssr --build-env npm_config_registry="https://registry.npmjs.org"
