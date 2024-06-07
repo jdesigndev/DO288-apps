@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: registry.ocp4.example.com:8443/redhattraining/todo-backend
+  repository: default-route-openshift-image-registry.apps.sandbox-m4.g2pi.p1.openshiftapps.com/marcogiglione-dev/todo-backend
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "release-46"
+  tag: "latest"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -104,6 +104,6 @@ env:
 - name: DATABASE_NAME
   value: tododb
 - name: DATABASE_SVC
-  value: release-name-mariadb
+  value: todo-list-mariadb
 
 
